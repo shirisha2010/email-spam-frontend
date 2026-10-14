@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Spam Detector</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>📧 Email Spam Detector</h1>
+  <p>Machine Learning + NLP (TF-IDF) classifier — paste an email and check if it is spam or legitimate.</p>
+  <span id="status" class="pill">checking server…</span>
+</header>
+
+<main>
+  <section class="card">
+    <label for="email">Email content</label>
+    <textarea id="email" rows="10" placeholder="Paste the subject and body of the email here…"></textarea>
+    <div class="row">
+      <button id="check">Check Email</button>
+      <button id="clear" class="ghost">Clear</button>
+      <span class="spacer"></span>
+      <button class="ghost sm" data-sample="spam">Spam example</button>
+      <button class="ghost sm" data-sample="ham">Legit example</button>
+    </div>
+    <p id="error" class="error" hidden></p>
+  </section>
+
+  <section id="result" class="card" hidden>
+    <div id="verdict"></div>
+    <div class="meter"><div id="bar"></div></div>
+    <p id="detail"></p>
+    <div id="words" hidden><strong>Suspicious words:</strong> <span id="wordlist"></span></div>
+  </section>
+
+  <section id="metrics" class="card" hidden>
+    <h2>Model performance</h2>
+    <p id="best"></p>
+    <table>
+      <thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead>
+      <tbody id="mrows"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>History</h2>
+    <ul id="history"><li class="muted">No checks yet.</li></ul>
+  </section>
+</main>
+<footer>Email Spam Detection using Machine Learning</footer>
+<script src="script.js"></script>
+</body>
+</html>
